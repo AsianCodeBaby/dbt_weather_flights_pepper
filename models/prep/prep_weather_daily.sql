@@ -8,17 +8,17 @@ add_features AS (
 		, DATE_PART('month', date) AS date_month
 		, DATE_PART('year',date) AS date_year
 		, EXTRACT (week from date) AS cw
-		, EXTRACT (month from date) AS month_name
-		, EXTRACT (day from date) AS weekday
+		, to_char (date,'FMMonth') AS month_name
+		, to_char (date, 'day') AS weekday
     FROM daily_data 
 ),
 add_more_features AS (
     SELECT *
 		, (CASE 
-			WHEN month_name in (12, 1, 2) THEN 'winter'
-			WHEN month_name in (3, 4, 5) THEN 'spring'
-            WHEN month_name in (6, 7, 8)  THEN 'summer'
-            WHEN month_name in (9, 10, 11) THEN 'autumn'
+			WHEN date_month in (12, 1, 2) THEN 'winter'
+			WHEN date_month in (3, 4, 5) THEN 'spring'
+            WHEN date_month in (6, 7, 8)  THEN 'summer'
+            WHEN date_month in (9, 10, 11) THEN 'autumn'
 		END) AS season
     FROM add_features
 )

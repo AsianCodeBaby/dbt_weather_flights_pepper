@@ -15,10 +15,10 @@ add_features AS (
 add_more_features AS (
     SELECT *
 		, (CASE 
-			WHEN month_name in [12, 1, 2] THEN 'winter'
-			WHEN month_name in [3, 4, 5] THEN 'spring'
-            WHEN month_name in [6, 7, 8]  THEN 'summer'
-            WHEN month_name in [9, 10, 11] THEN 'autumn'
+			WHEN month_name in (12, 1, 2) THEN 'winter'
+			WHEN month_name in (3, 4, 5) THEN 'spring'
+            WHEN month_name in (6, 7, 8)  THEN 'summer'
+            WHEN month_name in (9, 10, 11) THEN 'autumn'
 		END) AS season
     FROM add_features
 )

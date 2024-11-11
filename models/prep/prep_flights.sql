@@ -26,3 +26,4 @@ flights_cleaned AS(
             ,diverted
     FROM flights_one_month
 )
+select* FROM flights_cleaned

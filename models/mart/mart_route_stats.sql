@@ -29,7 +29,7 @@ destination_airport AS (
         country AS dest_country,
         name AS dest_name
     FROM {{ref('prep_airports')}}
-),
+)
 SELECT
     origin_faa AS origin_airport_code,
     dest_faa AS destination_airport_code,

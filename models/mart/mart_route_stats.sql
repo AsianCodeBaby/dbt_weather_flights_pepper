@@ -5,7 +5,7 @@ WITH route_stats AS (
         COUNT(*) AS total_flights,                              -- Total number of flights on this route
         COUNT(DISTINCT tail_number) AS unique_airplanes,        -- Unique airplanes (based on tail number)
         COUNT(DISTINCT airline) AS unique_airlines,             -- Unique airlines servicing this route
-        AVG(actual_elapsed_time) AS avg_actual_elapsed_time,    -- Average actual elapsed time
+        Round(AVG(actual_elapsed_time),2) AS avg_actual_elapsed_time,    -- Average actual elapsed time
         AVG(arr_delay) AS avg_arrival_delay,                    -- Average arrival delay
         MAX(arr_delay) AS max_arrival_delay,                    -- Maximum arrival delay
         MIN(arr_delay) AS min_arrival_delay,                    -- Minimum arrival delay
